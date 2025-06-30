@@ -4,17 +4,17 @@ main.obj: ../main.c
 main.obj: C:/Users/paula/OneDrive/Documentos/GitC2000/dac_adc_ex/device/driverlib.h
 main.obj: C:/ti/c2000/C2000Ware_5_04_00_00/driverlib/f2837xd/driverlib/inc/hw_memmap.h
 main.obj: C:/ti/c2000/C2000Ware_5_04_00_00/driverlib/f2837xd/driverlib/adc.h
-main.obj: C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/stdbool.h
-main.obj: C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/_ti_config.h
-main.obj: C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/linkage.h
-main.obj: C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/stdint.h
-main.obj: C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/_stdint40.h
-main.obj: C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/sys/stdint.h
-main.obj: C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/sys/cdefs.h
-main.obj: C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/sys/_types.h
-main.obj: C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/machine/_types.h
-main.obj: C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/machine/_stdint.h
-main.obj: C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/sys/_stdint.h
+main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/stdbool.h
+main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/_ti_config.h
+main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/linkage.h
+main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/stdint.h
+main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/_stdint40.h
+main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/sys/stdint.h
+main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/sys/cdefs.h
+main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/sys/_types.h
+main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/machine/_types.h
+main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/machine/_stdint.h
+main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/sys/_stdint.h
 main.obj: C:/ti/c2000/C2000Ware_5_04_00_00/driverlib/f2837xd/driverlib/inc/hw_adc.h
 main.obj: C:/ti/c2000/C2000Ware_5_04_00_00/driverlib/f2837xd/driverlib/inc/hw_sysctl.h
 main.obj: C:/ti/c2000/C2000Ware_5_04_00_00/driverlib/f2837xd/driverlib/inc/hw_types.h
@@ -90,9 +90,10 @@ main.obj: C:/ti/c2000/C2000Ware_5_04_00_00/driverlib/f2837xd/driverlib/driver_in
 main.obj: C:/Users/paula/OneDrive/Documentos/GitC2000/dac_adc_ex/device/device.h
 main.obj: syscfg/board.h
 main.obj: C:/Users/paula/OneDrive/Documentos/GitC2000/dac_adc_ex/device/device.h
-main.obj: C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/math.h
-main.obj: C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/_defs.h
-main.obj: C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/machine/_limits.h
+main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/math.h
+main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/_defs.h
+main.obj: C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/machine/_limits.h
+main.obj: C:/Users/paula/OneDrive/Documentos/GitC2000/dac_adc_ex/src/scicomm.h
 
 ../main.c:
 
@@ -102,27 +103,27 @@ C:/ti/c2000/C2000Ware_5_04_00_00/driverlib/f2837xd/driverlib/inc/hw_memmap.h:
 
 C:/ti/c2000/C2000Ware_5_04_00_00/driverlib/f2837xd/driverlib/adc.h:
 
-C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/stdbool.h:
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/stdbool.h:
 
-C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/_ti_config.h:
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/_ti_config.h:
 
-C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/linkage.h:
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/linkage.h:
 
-C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/stdint.h:
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/stdint.h:
 
-C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/_stdint40.h:
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/_stdint40.h:
 
-C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/sys/stdint.h:
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/sys/stdint.h:
 
-C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/sys/cdefs.h:
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/sys/cdefs.h:
 
-C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/sys/_types.h:
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/sys/_types.h:
 
-C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/machine/_types.h:
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/machine/_types.h:
 
-C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/machine/_stdint.h:
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/machine/_stdint.h:
 
-C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/sys/_stdint.h:
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/sys/_stdint.h:
 
 C:/ti/c2000/C2000Ware_5_04_00_00/driverlib/f2837xd/driverlib/inc/hw_adc.h:
 
@@ -274,9 +275,11 @@ syscfg/board.h:
 
 C:/Users/paula/OneDrive/Documentos/GitC2000/dac_adc_ex/device/device.h:
 
-C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/math.h:
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/math.h:
 
-C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/_defs.h:
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/_defs.h:
 
-C:/Program\ Files\ (x86)/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/machine/_limits.h:
+C:/ti/ccs1281/ccs/tools/compiler/ti-cgt-c2000_22.6.1.LTS/include/machine/_limits.h:
+
+C:/Users/paula/OneDrive/Documentos/GitC2000/dac_adc_ex/src/scicomm.h:
 

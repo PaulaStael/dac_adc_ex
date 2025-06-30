@@ -39,13 +39,13 @@ cputimer1.enableInterrupt = true;
 cputimer1.emulationMode   = "CPUTIMER_EMULATIONMODE_RUNFREE";
 cputimer1.timerPeriod     = 39999;
 
+cputimer2.$name                    = "myCPUTIMER1";
 cputimer2.cputimerBase             = "CPUTIMER1_BASE";
 cputimer2.enableInterrupt          = true;
 cputimer2.registerInterrupts       = true;
 cputimer2.startTimer               = true;
 cputimer2.emulationMode            = "CPUTIMER_EMULATIONMODE_RUNFREE";
 cputimer2.timerPeriod              = 19999;
-cputimer2.$name                    = "myCPUTIMER1";
 cputimer2.timerInt.enableInterrupt = true;
 
 dac1.$name            = "DAC0";
