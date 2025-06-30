@@ -1,5 +1,5 @@
 /*
- * Arquivo gerado por script Python em 2025-06-30 13:20:54
+ * Arquivo gerado por script Python em 2025-06-30 13:48:46
  * Frequência da Onda: 50.0 Hz
  * Amostras por Ciclo: 200
  * Resolução do DAC: 12 bits

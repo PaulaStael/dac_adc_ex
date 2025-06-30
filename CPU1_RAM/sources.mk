@@ -127,5 +127,4 @@ SUBDIRS := \
 . \
 device \
 src \
-utils \
 
