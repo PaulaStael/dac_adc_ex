@@ -10,7 +10,7 @@
 // Main
 //
 #define TAM_BUFFER_DAC 200
-#define TAM_BUFFER_ADC  100
+#define TAM_BUFFER_ADC  400
 extern uint16_t dac_buffer[];
 volatile uint16_t adc_buffer[TAM_BUFFER_ADC];
 volatile float gain = 1.0f;

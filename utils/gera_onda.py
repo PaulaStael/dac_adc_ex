@@ -6,6 +6,7 @@ import struct
 import time
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.signal import find_peaks 
 
 SERIAL_PORT = 'COM4'
 BAUD_RATE = 115200
@@ -37,8 +38,8 @@ def gerar_vetor_dac_parametrizado(frequencia_onda, amostras_por_ciclo, dac_bits,
     dac_valores = [
         int(round(max(0, min(offset + 
                              amplitude_dac * math.sin(2 * math.pi * i / amostras_por_ciclo)+
-                             amplitude_dac_quinta * math.sin(41 * 2 * math.pi * i / amostras_por_ciclo) +
-                             amplitude_dac_setima * math.sin(42 * 2 * math.pi * i / amostras_por_ciclo),
+                             amplitude_dac_quinta * math.sin(25 * 2 * math.pi * i / amostras_por_ciclo) +
+                             amplitude_dac_setima * math.sin(29 * 2 * math.pi * i / amostras_por_ciclo),
                              max_dac_val))))
         for i in range(amostras_por_ciclo)
     ]
@@ -138,44 +139,92 @@ def comparar_fft_dac_adc(dac_valores, adc_valores, freq_amostragem_dac, freq_amo
         print("⚠️ DAC ou ADC vazio, impossível comparar FFT.")
         return
     
-    # Preparar arrays
-    n_dac = len(dac_valores)
-    n_adc = len(adc_valores)
-
+    # Preparar arrays e remover a média (offset DC)
+    n_dac=len(dac_valores)
+    n_adc=len(adc_valores)
     dac_arr = np.array(dac_valores) - np.mean(dac_valores)
     adc_arr = np.array(adc_valores) - np.mean(adc_valores)
+
+    # Aplicar janela de Hanning
+    #window_dac = np.hanning(len(dac_arr))
+    #window_adc = np.hanning(len(adc_arr))
+
+    #dac_arr *= window_dac
+    #adc_arr *= window_adc
 
     # FFT
     fft_dac = np.fft.fft(dac_arr)
     fft_adc = np.fft.fft(adc_arr)
 
     # Frequências
-    freq_dac = np.fft.fftfreq(n_dac, d=1/freq_amostragem_dac)
-    freq_adc = np.fft.fftfreq(n_adc, d=1/freq_amostragem_adc)
+    freq_dac = np.fft.fftfreq(len(dac_arr), d=1/freq_amostragem_dac)
+    freq_adc = np.fft.fftfreq(len(adc_arr), d=1/freq_amostragem_adc)
 
-    # Metades positivas
+    # Metade positiva do espectro
     metade_dac = n_dac // 2
     metade_adc = n_adc // 2
 
-    mag_dac = np.abs(fft_dac)[:metade_dac] * 2 / n_dac
-    mag_adc = np.abs(fft_adc)[:metade_adc] * 2 / n_adc
+    mag_dac = np.abs(fft_dac[:metade_dac]) * 2 / n_dac
+    mag_adc = np.abs(fft_adc[:metade_adc]) * 2 / n_adc
+
+    freq_dac_pos = freq_dac[:metade_dac]
+    freq_adc_pos = freq_adc[:metade_adc]
+
+     # Detectar picos nas FFTs
+
+    limitar_adc = 0.05 * np.max(mag_adc)
+    peaks_adc, _ = find_peaks(mag_adc, height=limitar_adc)
+
+    limitar_dac = 0.05 * np.max(mag_dac)
+    peaks_dac, _ = find_peaks(mag_dac, height=limitar_dac)
+
+    peak_freqs_dac = freq_dac_pos[peaks_dac]
+    peak_mags_dac = mag_dac[peaks_dac]
+
+    peak_freqs_adc = freq_adc_pos[peaks_adc]
+    peak_mags_adc = mag_adc[peaks_adc]
 
     # Plotagem lado a lado
     plt.figure(figsize=(14,6))
 
-    plt.subplot(1, 2, 1)
-    plt.plot(freq_dac[:metade_dac], mag_dac, color='blue')
-    plt.title("FFT DAC")
+      # FFT DAC
+    plt.subplot(1, 3, 1)
+    plt.plot(freq_dac_pos, mag_dac, color='blue')
+    plt.ylim(-10, 1300)
+    plt.scatter(peak_freqs_dac, peak_mags_dac, color='black', zorder=5, label='Picos detectados')
+    for f, m in zip(peak_freqs_dac, peak_mags_dac):
+        plt.text(f, m + 0.02, f"{f:.1f} Hz", ha='center', va='bottom', fontsize=8, rotation=45)
+    plt.title("FFT DAC (com picos)")
     plt.xlabel("Frequência (Hz)")
     plt.ylabel("Magnitude")
     plt.grid(True)
+    plt.legend()
 
-    plt.subplot(1, 2, 2)
-    plt.plot(freq_adc[:metade_adc], mag_adc, color='red')
-    plt.title("FFT ADC")
+    # FFT ADC
+    plt.subplot(1, 3, 2)
+    plt.plot(freq_adc_pos, mag_adc, color='red')
+    plt.ylim(-10, 1300)
+    plt.scatter(peak_freqs_adc, peak_mags_adc, color='black', zorder=5, label='Picos detectados')
+    for f, m in zip(peak_freqs_adc, peak_mags_adc):
+        plt.text(f, m + 0.02, f"{f:.1f} Hz", ha='center', va='bottom', fontsize=8, rotation=45)
+    plt.title("FFT ADC (com picos)")
     plt.xlabel("Frequência (Hz)")
     plt.ylabel("Magnitude")
     plt.grid(True)
+    plt.legend()
+
+    # FFT Comparada
+    plt.subplot(1, 3, 3)
+    plt.plot(freq_dac_pos, mag_dac, color='blue', label='DAC')
+    plt.plot(freq_adc_pos, mag_adc, color='red', label='ADC')
+    plt.ylim(-10, 1300)
+    plt.scatter(peak_freqs_dac, peak_mags_dac, color='blue', s=20, zorder=5)
+    plt.scatter(peak_freqs_adc, peak_mags_adc, color='red', s=20, zorder=5)
+    plt.title("FFT DAC x ADC")
+    plt.xlabel("Frequência (Hz)")
+    plt.ylabel("Magnitude")
+    plt.grid(True)
+    plt.legend()
 
     plt.tight_layout()
     plt.show()
@@ -303,7 +352,7 @@ def main():
                           else:
                             adc_valores = receive_vector(ser)
                             if adc_valores:
-                                  comparar_fft_dac_adc(vetor_dac, adc_valores, freq_amostragem, freq_amostragem)
+                                  comparar_fft_dac_adc(vetor_dac, adc_valores, freq_amostragem, 2000)
                 elif opcao == '0':
                     print("Saindo.")
                     break
